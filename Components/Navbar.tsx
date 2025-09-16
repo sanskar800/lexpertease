@@ -31,10 +31,10 @@ const Navbar = () => {
             <Image
               src="/logo.png"
               alt="Lexpertease Logo"
-              width={140}
+              width={120}
               height={47}
               priority
-              className="h-12 w-auto"
+              className="h-10 w-auto"
             />
           </Link>
         </div>
