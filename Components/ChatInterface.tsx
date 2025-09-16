@@ -1,8 +1,7 @@
 "use client";
-
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Send, Bot, User, Sparkles } from "lucide-react";
+import { Send, Bot, User } from "lucide-react";
 
 interface Message {
   id: number;
@@ -32,13 +31,6 @@ const ChatInterface = () => {
   useEffect(() => {
     scrollToBottom();
   }, [messages]);
-
-  const quickResponses = [
-    "What is contract law?",
-    "Explain employment rights",
-    "How do I file a complaint?",
-    "What are my legal options?"
-  ];
 
   const generateResponse = (userMessage: string) => {
     const responses = {
@@ -84,11 +76,6 @@ const ChatInterface = () => {
     }
   };
 
-  const handleQuickResponse = (response: string) => {
-    setInput(response);
-    inputRef.current?.focus();
-  };
-
   const formatTime = (date: Date) => {
     return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
   };
@@ -106,7 +93,7 @@ const ChatInterface = () => {
       <div className="flex-1 overflow-y-auto px-6 py-4 scroll-smooth">
         <div className="max-w-4xl mx-auto space-y-6">
           <AnimatePresence>
-            {messages.map((message, index) => (
+            {messages.map((message) => (
               <motion.div
                 key={message.id}
                 initial={{ opacity: 0, y: 20 }}

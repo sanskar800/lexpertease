@@ -1,6 +1,5 @@
 "use client";
-"use client";
-import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import { useState, useEffect } from 'react';
 
 interface User {
   _id: string;
@@ -13,16 +12,6 @@ interface User {
   createdAt: string;
   updatedAt: string;
 }
-
-interface AuthContextType {
-  user: User | null;
-  isAuthenticated: boolean;
-  isLoading: boolean;
-  login: (token: string, refreshToken: string, user: User) => void;
-  logout: () => void;
-}
-
-const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 // Static AuthManager for utility functions
 export class AuthManager {

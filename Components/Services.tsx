@@ -1,5 +1,6 @@
 "use client";
 import { Building2, Heart, Shield, Home, Plane, Lightbulb } from "lucide-react";
+import { Button } from "./ui/button";
 
 const Services = () => {
   const services = [
@@ -75,11 +76,11 @@ const Services = () => {
         
         <div className="text-center mt-16">
           <p className="text-lg text-gray-700 mb-6">
-            Need legal assistance in a different area? We're here to help.
+            Need legal assistance in a different area? We&apos;re here to help.
           </p>
-          <button className="bg-[#0F8BDB] text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
+          <Button size="lg" className="bg-[#0F8BDB] text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
             Schedule a Consultation
-          </button>
+          </Button>
         </div>
       </div>
     </section>

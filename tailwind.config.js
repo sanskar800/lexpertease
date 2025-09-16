@@ -14,6 +14,8 @@ module.exports = {
       },
       colors: {
         primary: {
+          DEFAULT: '#0F8BDB',
+          dark: '#0A6AA8',
           50: '#eff8ff',
           100: '#dbeefe',
           200: '#bfe2fe',
@@ -36,7 +38,13 @@ module.exports = {
           700: '#334155',
           800: '#1e293b',
           900: '#0f172a',
-        }
+        },
+        background: '#ffffff',
+        foreground: '#171717',
+        accent: '#1E293B',
+        input: '#e2e8f0',
+        border: '#e2e8f0',
+        ring: '#0F8BDB',
       },
       animation: {
         'blob': 'blob 7s infinite',

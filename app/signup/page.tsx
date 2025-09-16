@@ -4,8 +4,21 @@ import { useState } from "react";
 import { Mail, Lock, Eye, EyeOff, User, Phone } from "lucide-react";
 import Navbar from "../../Components/Navbar";
 import Footer from "../../Components/Footer";
+import { Button } from "../../Components/ui/button";
 import { trpc } from "../../lib/trpc";
 import { useAuth } from "../../lib/auth";
+
+interface User {
+  _id: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string;
+  role: 'client' | 'admin';
+  isVerified: boolean;
+  createdAt: string;
+  updatedAt: string;
+}
 
 export default function SignupPage() {
   const [showPassword, setShowPassword] = useState(false);
@@ -27,7 +40,7 @@ export default function SignupPage() {
     onSuccess: (data) => {
       // Auto-login after successful signup
       if (data?.data) {
-        login(data.data.token, data.data.refreshToken, data.data.user as any);
+        login(data.data.token, data.data.refreshToken, data.data.user as User);
       }
     },
     onError: (error) => {
@@ -291,9 +304,10 @@ export default function SignupPage() {
               )}
             </div>
 
-            <button
+            <Button
               type="submit"
               disabled={signupMutation.isPending}
+              size="lg"
               className="w-full bg-[#0F8BDB] text-white py-3 px-4 rounded-lg font-semibold hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-[#0F8BDB] focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
             >
               {signupMutation.isPending ? (
@@ -304,7 +318,7 @@ export default function SignupPage() {
               ) : (
                 "Create Account"
               )}
-            </button>
+            </Button>
 
             <div className="text-center">
               <p className="text-gray-600">

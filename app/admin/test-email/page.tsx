@@ -1,9 +1,9 @@
 "use client";
 import { useState } from "react";
 import { Mail, Send, CheckCircle, XCircle } from "lucide-react";
-import Navbar from "../../Components/Navbar";
-import Footer from "../../Components/Footer";
-import { trpc } from "../../lib/trpc";
+import Navbar from "../../../Components/Navbar";
+import Footer from "../../../Components/Footer";
+import { trpc } from "../../../lib/trpc";
 
 export default function AdminTestPage() {
   const [email, setEmail] = useState("");

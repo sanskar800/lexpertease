@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
 import { Menu, X, User, LogIn, LogOut, UserCircle } from "lucide-react";
+import { Button } from "./ui/button";
 import { useAuth } from "../lib/auth";
 
 const Navbar = () => {
@@ -70,44 +71,46 @@ const Navbar = () => {
                     <p className="text-sm font-medium text-gray-900">{user.firstName} {user.lastName}</p>
                     <p className="text-xs text-gray-500">{user.email}</p>
                   </div>
-                  <button
+                  <Button
                     onClick={handleLogout}
+                    variant="ghost"
+                    size="sm"
                     className="w-full px-4 py-2 text-left text-sm text-red-600 hover:bg-red-50 flex items-center gap-2"
                   >
                     <LogOut className="w-4 h-4" />
                     Sign Out
-                  </button>
+                  </Button>
                 </div>
               )}
             </div>
           ) : (
             <div className="flex items-center space-x-3">
-              <Link
-                href="/login"
-                className="flex items-center gap-2 text-gray-700 hover:text-[#0F8BDB] transition-colors duration-200 px-4 py-2 rounded-lg"
-              >
-                <LogIn className="w-4 h-4" />
-                Login
-              </Link>
-              <Link
-                href="/signup"
-                className="flex items-center gap-2 bg-[#0F8BDB] text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-200"
-              >
-                <User className="w-4 h-4" />
-                Sign Up
-              </Link>
+              <Button asChild variant="ghost" className="flex items-center gap-2 text-gray-700 hover:text-[#0F8BDB] transition-colors duration-200 px-4 py-2 rounded-lg">
+                <Link href="/login">
+                  <LogIn className="w-4 h-4" />
+                  Login
+                </Link>
+              </Button>
+              <Button asChild className="flex items-center gap-2 bg-[#0F8BDB] text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-200">
+                <Link href="/signup">
+                  <User className="w-4 h-4" />
+                  Sign Up
+                </Link>
+              </Button>
             </div>
           )}
         </div>
         
         {/* Mobile Menu Button */}
         <div className="md:hidden">
-          <button
+          <Button
+            variant="ghost"
+            size="sm"
             onClick={() => setIsOpen(!isOpen)}
             className="text-gray-700 hover:text-[#0F8BDB] transition-colors"
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          </Button>
         </div>
       </div>
       
@@ -135,32 +138,29 @@ const Navbar = () => {
                     <p className="text-sm font-medium text-gray-900">{user.firstName} {user.lastName}</p>
                     <p className="text-xs text-gray-500">{user.email}</p>
                   </div>
-                  <button
+                  <Button
                     onClick={handleLogout}
+                    variant="ghost"
                     className="flex items-center gap-2 text-red-600 hover:text-red-700 transition-colors py-2"
                   >
                     <LogOut className="w-4 h-4" />
                     Sign Out
-                  </button>
+                  </Button>
                 </>
               ) : (
                 <>
-                  <Link
-                    href="/login"
-                    className="flex items-center gap-2 text-gray-700 hover:text-[#0F8BDB] transition-colors py-2"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    <LogIn className="w-4 h-4" />
-                    Login
-                  </Link>
-                  <Link
-                    href="/signup"
-                    className="flex items-center gap-2 bg-[#0F8BDB] text-white px-4 py-2 rounded-lg font-semibold hover:bg-blue-700 transition-colors w-fit"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    <User className="w-4 h-4" />
-                    Sign Up
-                  </Link>
+                  <Button asChild variant="ghost" className="flex items-center gap-2 text-gray-700 hover:text-[#0F8BDB] transition-colors py-2">
+                    <Link href="/login" onClick={() => setIsOpen(false)}>
+                      <LogIn className="w-4 h-4" />
+                      Login
+                    </Link>
+                  </Button>
+                  <Button asChild className="flex items-center gap-2 bg-[#0F8BDB] text-white px-4 py-2 rounded-lg font-semibold hover:bg-blue-700 transition-colors w-fit">
+                    <Link href="/signup" onClick={() => setIsOpen(false)}>
+                      <User className="w-4 h-4" />
+                      Sign Up
+                    </Link>
+                  </Button>
                 </>
               )}
             </div>

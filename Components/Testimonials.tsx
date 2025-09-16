@@ -1,5 +1,6 @@
 "use client";
 import { Star } from "lucide-react";
+import { Button } from "./ui/button";
 import Image from "next/image";
 
 const Testimonials = () => {
@@ -39,7 +40,7 @@ const Testimonials = () => {
           </h2>
           <div className="w-16 h-1 bg-[#0F8BDB] mx-auto mb-4"></div>
           <p className="text-lg text-gray-700 max-w-2xl mx-auto">
-            Don't just take our word for it. Here's what our satisfied clients have to say about our legal services.
+            Don&apos;t just take our word for it. Here&apos;s what our satisfied clients have to say about our legal services.
           </p>
         </div>
         
@@ -58,7 +59,7 @@ const Testimonials = () => {
               
               {/* Testimonial Text */}
               <blockquote className="text-gray-700 text-lg leading-relaxed mb-8">
-                "{testimonial.quote}"
+                &ldquo;{testimonial.quote}&rdquo;
               </blockquote>
               
               {/* Author */}
@@ -89,9 +90,9 @@ const Testimonials = () => {
           <p className="text-lg text-gray-700 mb-6">
             Ready to experience exceptional legal representation?
           </p>
-          <button className="bg-[#0F8BDB] text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
+          <Button size="lg" className="bg-[#0F8BDB] text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
             Join Our Satisfied Clients
-          </button>
+          </Button>
         </div>
       </div>
     </section>

@@ -5,6 +5,7 @@ import { useSearchParams, useRouter } from "next/navigation";
 import { Lock, Eye, EyeOff, CheckCircle } from "lucide-react";
 import Navbar from "../../Components/Navbar";
 import Footer from "../../Components/Footer";
+import { Button } from "../../Components/ui/button";
 import { trpc } from "../../lib/trpc";
 
 export default function ResetPasswordPage() {
@@ -102,12 +103,11 @@ export default function ResetPasswordPage() {
                 Your password has been reset successfully. You can now log in with your new password.
               </p>
               
-              <Link
-                href="/login"
-                className="w-full bg-[#0F8BDB] text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors inline-block"
-              >
-                Continue to Login
-              </Link>
+              <Button asChild size="lg" className="w-full bg-[#0F8BDB] text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
+                <Link href="/login">
+                  Continue to Login
+                </Link>
+              </Button>
             </div>
           </div>
         </div>
@@ -207,9 +207,10 @@ export default function ResetPasswordPage() {
               </ul>
             </div>
 
-            <button
+            <Button
               type="submit"
               disabled={resetPasswordMutation.isPending}
+              size="lg"
               className="w-full bg-[#0F8BDB] text-white py-3 px-4 rounded-lg font-semibold hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-[#0F8BDB] focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
             >
               {resetPasswordMutation.isPending ? (
@@ -220,7 +221,7 @@ export default function ResetPasswordPage() {
               ) : (
                 "Reset password"
               )}
-            </button>
+            </Button>
 
             <div className="text-center">
               <Link href="/login" className="text-gray-600 hover:text-[#0F8BDB] transition-colors">

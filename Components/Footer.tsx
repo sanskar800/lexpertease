@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Mail, Phone, MapPin, Linkedin, Twitter, Facebook, ArrowUp } from "lucide-react";
 import { useState, useEffect } from "react";
+import { Button } from "./ui/button";
 
 const Footer = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -91,7 +92,7 @@ const Footer = () => {
             
             <p className="text-gray-300 leading-relaxed max-w-md">
               Professional legal services with integrity, expertise, and dedication. 
-              We're committed to protecting your rights and achieving the best outcomes for our clients.
+              We&apos;re committed to protecting your rights and achieving the best outcomes for our clients.
             </p>
             
             {/* Contact Information */}
@@ -165,9 +166,9 @@ const Footer = () => {
                   placeholder="Enter your email"
                   className="px-4 py-2 bg-gray-700 text-white rounded-l border border-gray-600 focus:outline-none focus:border-[#0F8BDB]"
                 />
-                <button className="px-6 py-2 bg-[#0F8BDB] hover:bg-blue-600 rounded-r font-medium transition-colors">
+                <Button className="px-6 py-2 bg-[#0F8BDB] hover:bg-blue-600 rounded-r font-medium transition-colors">
                   Subscribe
-                </button>
+                </Button>
               </div>
             </div>
           </div>
@@ -189,12 +190,13 @@ const Footer = () => {
       
       {/* Scroll to Top Button */}
       {isVisible && (
-        <button
+        <Button
           onClick={scrollToTop}
+          size="lg"
           className="fixed bottom-8 right-8 p-3 bg-[#0F8BDB] hover:bg-blue-600 text-white rounded-full shadow-lg transition-colors z-50"
         >
           <ArrowUp className="w-6 h-6" />
-        </button>
+        </Button>
       )}
     </footer>
   );

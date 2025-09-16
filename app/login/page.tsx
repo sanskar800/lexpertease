@@ -4,8 +4,21 @@ import { useState } from "react";
 import { Mail, Lock, Eye, EyeOff } from "lucide-react";
 import Navbar from "../../Components/Navbar";
 import Footer from "../../Components/Footer";
+import { Button } from "../../Components/ui/button";
 import { trpc } from "../../lib/trpc";
 import { useAuth } from "../../lib/auth";
+
+interface User {
+  _id: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string;
+  role: 'client' | 'admin';
+  isVerified: boolean;
+  createdAt: string;
+  updatedAt: string;
+}
 
 export default function LoginPage() {
   const [showPassword, setShowPassword] = useState(false);
@@ -20,7 +33,7 @@ export default function LoginPage() {
     onSuccess: (data) => {
       // Auto-login after successful authentication
       if (data?.data) {
-        login(data.data.token, data.data.refreshToken, data.data.user as any);
+        login(data.data.token, data.data.refreshToken, data.data.user as User);
       }
     },
     onError: (error) => {
@@ -160,9 +173,10 @@ export default function LoginPage() {
               </Link>
             </div>
 
-            <button
+            <Button
               type="submit"
               disabled={loginMutation.isPending}
+              size="lg"
               className="w-full bg-[#0F8BDB] text-white py-3 px-4 rounded-lg font-semibold hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-[#0F8BDB] focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
             >
               {loginMutation.isPending ? (
@@ -173,11 +187,11 @@ export default function LoginPage() {
               ) : (
                 "Sign in"
               )}
-            </button>
+            </Button>
 
             <div className="text-center">
               <p className="text-gray-600">
-                Don't have an account?{" "}
+                Don&apos;t have an account?{" "}
                 <Link href="/signup" className="text-[#0F8BDB] hover:text-blue-700 font-semibold">
                   Sign up
                 </Link>

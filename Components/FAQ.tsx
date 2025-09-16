@@ -126,7 +126,7 @@ const FAQ = () => {
               Still Have Questions?
             </h3>
             <p className="text-gray-700 mb-6">
-              Don't see your question answered above? We're here to help with any legal questions you might have.
+              Don&apos;t see your question answered above? We&apos;re here to help with any legal questions you might have.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <motion.a

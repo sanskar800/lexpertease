@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Mail, ArrowLeft } from "lucide-react";
 import Navbar from "../../Components/Navbar";
 import Footer from "../../Components/Footer";
+import { Button } from "../../Components/ui/button";
 import { trpc } from "../../lib/trpc";
 
 export default function ForgotPasswordPage() {
@@ -65,25 +66,25 @@ export default function ForgotPasswordPage() {
               </div>
               <h2 className="text-3xl font-bold text-gray-900 mb-2">Check your email</h2>
               <p className="text-gray-600 mb-6">
-                If an account with that email exists, we've sent you a password reset link.
+                If an account with that email exists, we&apos;ve sent you a password reset link.
               </p>
               <p className="text-sm text-gray-500 mb-4">
-                Didn't receive the email? Check your spam folder or try again in a few minutes.
+                Didn&apos;t receive the email? Check your spam folder or try again in a few minutes.
               </p>
               <p className="text-xs text-gray-400 mb-8">
                 The reset link will expire in 15 minutes for security reasons.
               </p>
               
               <div className="space-y-4">
-                <Link
-                  href="/login"
-                  className="w-full bg-[#0F8BDB] text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors inline-flex items-center justify-center gap-2"
-                >
-                  <ArrowLeft className="w-4 h-4" />
-                  Back to Login
-                </Link>
+                <Button asChild size="lg" className="w-full bg-[#0F8BDB] text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors inline-flex items-center justify-center gap-2">
+                  <Link href="/login">
+                    <ArrowLeft className="w-4 h-4" />
+                    Back to Login
+                  </Link>
+                </Button>
                 
-                <button
+                <Button
+                  variant="ghost"
                   onClick={() => {
                     setIsSubmitted(false);
                     setEmail("");
@@ -92,7 +93,7 @@ export default function ForgotPasswordPage() {
                   className="w-full text-[#0F8BDB] hover:text-blue-700 transition-colors"
                 >
                   Try a different email
-                </button>
+                </Button>
               </div>
             </div>
           </div>
@@ -112,7 +113,7 @@ export default function ForgotPasswordPage() {
           <div className="text-center">
             <h2 className="text-3xl font-bold text-gray-900 mb-2">Forgot your password?</h2>
             <p className="text-gray-600">
-              Enter your email address and we'll send you a link to reset your password.
+              Enter your email address and we&apos;ll send you a link to reset your password.
             </p>
           </div>
 
@@ -149,9 +150,10 @@ export default function ForgotPasswordPage() {
               )}
             </div>
 
-            <button
+            <Button
               type="submit"
               disabled={forgotPasswordMutation.isPending}
+              size="lg"
               className="w-full bg-[#0F8BDB] text-white py-3 px-4 rounded-lg font-semibold hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-[#0F8BDB] focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
             >
               {forgotPasswordMutation.isPending ? (
@@ -162,7 +164,7 @@ export default function ForgotPasswordPage() {
               ) : (
                 "Send reset link"
               )}
-            </button>
+            </Button>
 
             <div className="text-center">
               <Link href="/login" className="flex items-center justify-center gap-2 text-gray-600 hover:text-[#0F8BDB] transition-colors">

@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Phone, MessageCircle, ArrowRight, Clock, Shield, Award } from "lucide-react";
+import { Button } from "./ui/button";
 
 const CTA = () => {
   const features = [
@@ -90,28 +91,26 @@ const CTA = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            <Link
-              href="#contact"
-              className="group bg-white text-[#0F8BDB] px-8 py-4 rounded-xl font-semibold hover:bg-gray-100 transition-all duration-300 inline-flex items-center gap-3 shadow-lg hover:shadow-xl"
-            >
-              <Phone className="w-5 h-5" />
-              Schedule Consultation
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </Link>
+            <Button asChild size="lg" className="group bg-white text-[#0F8BDB] px-8 py-4 rounded-xl font-semibold hover:bg-gray-100 transition-all duration-300 inline-flex items-center gap-3 shadow-lg hover:shadow-xl">
+              <Link href="#contact">
+                <Phone className="w-5 h-5" />
+                Schedule Consultation
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </Button>
           </motion.div>
           
           <motion.div
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            <Link
-              href="/chat"
-              className="group border-2 border-white text-white px-8 py-4 rounded-xl font-semibold hover:bg-white hover:text-[#0F8BDB] transition-all duration-300 inline-flex items-center gap-3"
-            >
-              <MessageCircle className="w-5 h-5" />
-              Chat Now
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </Link>
+            <Button asChild variant="outline" size="lg" className="group border-2 border-white text-white px-8 py-4 rounded-xl font-semibold hover:bg-white hover:text-[#0F8BDB] transition-all duration-300 inline-flex items-center gap-3">
+              <Link href="/chat">
+                <MessageCircle className="w-5 h-5" />
+                Chat Now
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </Button>
           </motion.div>
         </motion.div>
         

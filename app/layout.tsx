@@ -1,7 +1,6 @@
-"use client";
-import type { Metadata } from "next";
 import { Inter, Merriweather } from "next/font/google";
-import { trpc } from "../lib/trpc";
+import TRPCProvider from "../Components/providers/TRPCProvider";
+import type { ReactNode } from "react";
 
 import "./globals.css";
 
@@ -16,20 +15,20 @@ const merriweather = Merriweather({
   variable: "--font-merriweather",
 });
 
-function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+interface RootLayoutProps {
+  children: ReactNode;
+}
+
+function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en">
       <body
         className={`${inter.variable} ${merriweather.variable} font-sans antialiased`}
       >
-        {children}
+        <TRPCProvider>{children}</TRPCProvider>
       </body>
     </html>
   );
 }
 
-export default trpc.withTRPC(RootLayout);
+export default RootLayout;
